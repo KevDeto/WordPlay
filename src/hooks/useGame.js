@@ -129,7 +129,7 @@ export const useGame = () => {
                 };
             }
 
-            if (key === "ENTER") {
+            if (key === "Enter") {
                 if (prev.currentGuess.length !== 5) return prev;
 
                 const guess = prev.currentGuess.toLowerCase();

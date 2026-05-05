@@ -9,7 +9,7 @@ export const useKeyboard = (onKey) => {
             if (key === "Enter") {
                 e.preventDefault();
                 e.stopPropagation();
-                onKey("ENTER")
+                onKey("Enter")
             } else if (key === "Backspace") {
                 onKey("BACKSPACE")
             } else if (/^[a-zñA-ZÑ]$/.test(key)) {
