@@ -27,7 +27,7 @@ const Modal = ({ game, onReset, word }) => {
                 />
 
                 <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                         <DialogPanel
                             transition
                             className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-xxs  data-closed:sm:translate-y-0 data-closed:sm:scale-95 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10"
@@ -41,10 +41,7 @@ const Modal = ({ game, onReset, word }) => {
                                         <DialogTitle as="h3" className="text-base font-semibold text-yellow-500 sm:text-xl ">
                                             {game.gameState.win ? "¡Ganaste! 🏆" : "¡Perdiste! 💀"}
                                         </DialogTitle>
-                                        <div className="text-center">
-                                            <h3 className="text-white">Palabra:</h3>
-                                            <p className="text-green-400 font-bold uppercase" >{word}</p>
-                                        </div>
+
                                         {/*<div className="mt-2">
                                             <p className="text-sm text-gray-500 dark:text-gray-400">
                                                 Are you sure you want to deactivate your account? All of your data will be permanently removed.
@@ -52,6 +49,12 @@ const Modal = ({ game, onReset, word }) => {
                                             </p>
                                         </div>*/}
                                     </div>
+                                </div>
+                            </div>
+                            <div className='bg-white flex justify-center p-4 dark:bg-gray-800'>
+                                <div className="text-center">
+                                    <h3 className="text-white">Palabra:</h3>
+                                    <p className="text-green-400 font-bold uppercase" >{word}</p>
                                 </div>
                             </div>
                             <div className=" px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 bg-gray-700/25">

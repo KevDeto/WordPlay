@@ -11,7 +11,7 @@ export const Header = () => {
                 color: "white"
             }}
         >
-            Wordplay
+            WORDPLAY
         </div>
     );
 };
