@@ -4,6 +4,7 @@ import { GameBoard } from "../components/game/GameBoard";
 import { Keyboard } from "../components/game/Keyboard";
 import { Header } from "../components/layout/Header";
 import { Container } from "../components/layout/Container";
+import Modal from "../components/ui/Modal";
 
 export const Home = () => {
     const game = useGame()
@@ -22,13 +23,7 @@ export const Home = () => {
             <Keyboard onKey={game.handleKey} keyStatus={game.keyStatus} />
             {game.gameState.gameOver && (
                 <div>
-                    <p>
-                        {game.gameState.win ? "Ganaste" : "Perdiste"} - palabra: {game.gameState.solution}
-                    </p>
-
-                    <button onClick={game.restartGame}>
-                        Nuevo juego
-                    </button>
+                    <Modal game={game} onReset={game.restartGame} word={game.gameState.solution}/>
                 </div>
             )}
         </Container>

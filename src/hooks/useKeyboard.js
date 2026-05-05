@@ -7,6 +7,8 @@ export const useKeyboard = (onKey) => {
             const key = e.key
 
             if (key === "Enter") {
+                e.preventDefault();
+                e.stopPropagation();
                 onKey("ENTER")
             } else if (key === "Backspace") {
                 onKey("BACKSPACE")

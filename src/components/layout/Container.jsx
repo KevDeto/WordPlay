@@ -5,7 +5,7 @@ export const Container = ({ children }) => {
                 flex flex-col 
                 min-h-screen w-full
                 items-center justify-start 
-                bg-amber-200 text-black
+                bg-[#13141C] text-black
                 "
         >
             {children}

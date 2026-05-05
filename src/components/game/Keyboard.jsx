@@ -29,7 +29,7 @@ export const Keyboard = ({ onKey, keyStatus }) => {
                     ))}
 
                     {col === 2 && (
-                        <Key label="ENTER" onClick={onKey} />
+                        <Key label="Enter" onClick={onKey} />
                     )}
                 </div>
             ))}

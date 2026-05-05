@@ -8,6 +8,7 @@ export const Header = () => {
                 borderBottom: "1px solid #333",
                 fontSize: "24px",
                 fontWeight: "bold",
+                color: "white"
             }}
         >
             Wordplay
