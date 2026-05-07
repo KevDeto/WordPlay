@@ -4,7 +4,7 @@ export const Row = ({ row }) => {
     return (
         <div className="flex justify-center">
             {row.map((cell, i) => (
-                <Card key={i} cell={cell}/>
+                <Card key={i} cell={cell} index={i}/>
             ))}
         </div>
     )

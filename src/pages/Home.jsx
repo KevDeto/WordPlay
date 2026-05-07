@@ -29,3 +29,4 @@ export const Home = () => {
         </Container>
     )
 }
+{/*revisar porque tomo "cuajo" como palabra ganadora si en solutions no estaba, solo estaba en validwords*/}
