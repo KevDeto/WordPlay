@@ -9,26 +9,23 @@ import validWords5 from "../data/validwords-5.json";
 import validWords6 from "../data/validwords-6.json";
 import { fisherYatesShuffle } from "../utils/shuffle";
 
-// CHANGE: función para obtener JSON según longitud
 const getSolutionsByLength = (length) => {
     if (length === 4) return solutions4;
     if (length === 6) return solutions6;
-    return solutions5; // default 5
+    return solutions5;
 };
 
 const getValidWordsByLength = (length) => {
     if (length === 4) return validWords4;
     if (length === 6) return validWords6;
-    return validWords5; // default 5
+    return validWords5;
 };
 
-// CHANGE: crear board con columnas dinámicas
 const createEmptyBoard = (cols = 5) =>
     Array(6).fill(null).map(() =>
         Array(cols).fill(null).map(() => ({ letter: "", status: "" }))
     );
 
-// CHANGE: initGame ahora acepta wordLength
 const initGame = (wordLength = 5) => {
     const solutions = getSolutionsByLength(wordLength);
     const { index, list, length } = loadWordProgress();
@@ -49,7 +46,6 @@ const initGame = (wordLength = 5) => {
 };
 
 export const useGame = () => {
-    // CHANGE: estado para longitud actual
     const [wordLength, setWordLength] = useState(5);
     const [initial] = useState(() => initGame(wordLength));
 
@@ -72,7 +68,6 @@ export const useGame = () => {
 
     const [keyStatus, setKeyStatus] = useState({});
 
-    // CHANGE: función para cambiar longitud de palabra
     const changeWordLength = (newLength) => {
         if (newLength === wordLength) return;
         
@@ -131,7 +126,6 @@ export const useGame = () => {
         return nextSolution;
     };
 
-    // CHANGE: handleKey ahora usa wordLength dinámico
     const handleKey = useCallback((key) => {
         setGameState((prev) => {
             if (prev.gameOver) return prev;
@@ -216,7 +210,7 @@ export const useGame = () => {
         handleKey,
         keyStatus,
         restartGame,
-        changeWordLength,  // CHANGE: exportar función
-        wordLength,        // CHANGE: exportar estado
+        changeWordLength,
+        wordLength,
     };
 };
