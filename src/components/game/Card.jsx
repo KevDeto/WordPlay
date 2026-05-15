@@ -6,7 +6,7 @@ export const Card = ({ cell, index }) => {
     useEffect(() => {
         if (cell.letter && cell.letter !== '') {
             setIsBouncing(true);
-            const timer = setTimeout(() => setIsBouncing(false), 150);
+            const timer = setTimeout(() => setIsBouncing(false), 120);
             return () => clearTimeout(timer);
         }
     }, [cell.letter]);
@@ -34,7 +34,7 @@ export const Card = ({ cell, index }) => {
                 m-[3.4px]
                 font-bold text-3xl xs:text-4xl md:text-5xl
                 rounded-[8px] text-white 
-                transition-all duration-350
+                transition-all duration-350 
                 transform-3d backface-hidden
                 ${getColorState()}
                 ${isBouncing ? 'scale-80' : 'scale-100'}`}

@@ -3,7 +3,7 @@ export const Container = ({ children }) => {
         <div
             className="
                 flex flex-col 
-                min-h-screen w-full
+                min-h-screen min-w-full
                 items-center justify-start 
                 bg-[#13141C] text-black
                 "

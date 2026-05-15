@@ -13,7 +13,7 @@ export const GameBoard = ({ board, currentRow, currentGuess }) => {
     }
 
     return (
-        <div className="mt-4 w-screen">
+        <div className="m-auto w-full">
             {board.map((row, col) => (
                 <Row key={col} row={getMergedRow(row, col)} />
             ))}

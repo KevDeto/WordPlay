@@ -1,52 +1,62 @@
 import { useState, useCallback, useEffect } from "react";
 import { evaluateGuess } from "../utils/evaluateGuess";
 import { loadWordProgress, saveWordProgress } from "../utils/storage";
-import solutions from "../data/solutions.json";
-import validWords from "../data/validwords.json";
+import solutions4 from "../data/solutions-4.json";
+import solutions5 from "../data/solutions-5.json";
+import solutions6 from "../data/solutions-6.json";
+import validWords4 from "../data/validwords-4.json";
+import validWords5 from "../data/validwords-5.json";
+import validWords6 from "../data/validwords-6.json";
 import { fisherYatesShuffle } from "../utils/shuffle";
 
-const createEmptyBoard = () =>
+// CHANGE: función para obtener JSON según longitud
+const getSolutionsByLength = (length) => {
+    if (length === 4) return solutions4;
+    if (length === 6) return solutions6;
+    return solutions5; // default 5
+};
+
+const getValidWordsByLength = (length) => {
+    if (length === 4) return validWords4;
+    if (length === 6) return validWords6;
+    return validWords5; // default 5
+};
+
+// CHANGE: crear board con columnas dinámicas
+const createEmptyBoard = (cols = 5) =>
     Array(6).fill(null).map(() =>
-        Array(5).fill(null).map(() => ({ letter: "", status: "" }))
+        Array(cols).fill(null).map(() => ({ letter: "", status: "" }))
     );
 
-const initGame = () => {
-    const { index, list } = loadWordProgress();
+// CHANGE: initGame ahora acepta wordLength
+const initGame = (wordLength = 5) => {
+    const solutions = getSolutionsByLength(wordLength);
+    const { index, list, length } = loadWordProgress();
 
-    let shuffled = list;
-
-    if (!shuffled) {
-        shuffled = fisherYatesShuffle(solutions);
-    }
-    /*
-    const currentIndex = index % shuffled.length;
-    const solution = shuffled[currentIndex];
-
-    saveWordProgress(currentIndex, shuffled);
-    */
+    let shuffled = (list && length === wordLength) ? list : fisherYatesShuffle(solutions);
 
     const nextIndex = (index + 1) % shuffled.length;
     const solution = shuffled[nextIndex];
 
-    saveWordProgress(nextIndex, shuffled);
+    saveWordProgress(nextIndex, shuffled, wordLength);
 
     return {
         solution,
         shuffled,
         index: nextIndex,
+        wordLength,
     };
 };
 
 export const useGame = () => {
-    const [initial] = useState(() => initGame());
+    // CHANGE: estado para longitud actual
+    const [wordLength, setWordLength] = useState(5);
+    const [initial] = useState(() => initGame(wordLength));
 
     const [gameState, setGameState] = useState(() => {
-        //const saved = loadGame();
-        //if (saved) return saved;
-
         return {
             solution: initial.solution,
-            board: createEmptyBoard(),
+            board: createEmptyBoard(wordLength),
             currentRow: 0,
             currentGuess: "",
             gameOver: false,
@@ -57,22 +67,36 @@ export const useGame = () => {
     const [wordProgress, setWordProgress] = useState({
         list: initial.shuffled,
         index: initial.index,
+        length: wordLength,
     });
-    /*
-        const [keyStatus, setKeyStatus] = useState(() => {
-            const saved = loadGame();
-            return saved?.keyStatus || {};
-        });
-    */
+
     const [keyStatus, setKeyStatus] = useState({});
-    /*
-    useEffect(() => {
-        saveGame({
-            ...gameState,
-            keyStatus
+
+    // CHANGE: función para cambiar longitud de palabra
+    const changeWordLength = (newLength) => {
+        if (newLength === wordLength) return;
+        
+        setWordLength(newLength);
+        const newInitial = initGame(newLength);
+        
+        setWordProgress({
+            list: newInitial.shuffled,
+            index: newInitial.index,
+            length: newLength,
         });
-    }, [gameState, keyStatus]);
-    */
+        
+        setKeyStatus({});
+        
+        setGameState({
+            solution: newInitial.solution,
+            board: createEmptyBoard(newLength),
+            currentRow: 0,
+            currentGuess: "",
+            gameOver: false,
+            win: false,
+        });
+    };
+
     const updateKeyStatus = (evaluated) => {
         setKeyStatus((prev) => {
             const next = { ...prev };
@@ -97,18 +121,17 @@ export const useGame = () => {
         const nextIndex = (wordProgress.index + 1) % wordProgress.list.length;
         const nextSolution = wordProgress.list[nextIndex];
 
-        saveWordProgress(nextIndex, wordProgress.list);
+        saveWordProgress(nextIndex, wordProgress.list, wordLength);
 
         setWordProgress((prev) => ({
             ...prev,
             index: nextIndex,
         }));
 
-        //clearGame();
-
         return nextSolution;
     };
 
+    // CHANGE: handleKey ahora usa wordLength dinámico
     const handleKey = useCallback((key) => {
         setGameState((prev) => {
             if (prev.gameOver) return prev;
@@ -121,7 +144,7 @@ export const useGame = () => {
             }
 
             if (/^[A-ZÑ]$/.test(key)) {
-                if (prev.currentGuess.length >= 5) return prev;
+                if (prev.currentGuess.length >= wordLength) return prev;
 
                 return {
                     ...prev,
@@ -130,9 +153,10 @@ export const useGame = () => {
             }
 
             if (key === "Enter") {
-                if (prev.currentGuess.length !== 5) return prev;
+                if (prev.currentGuess.length !== wordLength) return prev;
 
                 const guess = prev.currentGuess.toLowerCase();
+                const validWords = getValidWordsByLength(wordLength);
 
                 if (!validWords.includes(guess)) {
                     return prev;
@@ -170,7 +194,7 @@ export const useGame = () => {
 
             return prev;
         });
-    }, [wordProgress]);
+    }, [wordProgress, wordLength]);
 
     const restartGame = () => {
         const newSolution = nextWord();
@@ -179,7 +203,7 @@ export const useGame = () => {
 
         setGameState({
             solution: newSolution,
-            board: createEmptyBoard(),
+            board: createEmptyBoard(wordLength),
             currentRow: 0,
             currentGuess: "",
             gameOver: false,
@@ -191,6 +215,8 @@ export const useGame = () => {
         gameState,
         handleKey,
         keyStatus,
-        restartGame
+        restartGame,
+        changeWordLength,  // CHANGE: exportar función
+        wordLength,        // CHANGE: exportar estado
     };
 };

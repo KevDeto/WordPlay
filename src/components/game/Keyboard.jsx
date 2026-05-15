@@ -9,7 +9,7 @@ const rows = [
 export const Keyboard = ({ onKey, keyStatus }) => {
 
     return (
-        <div className="m-14 max-xxs:w-screen">
+        <div className="m-auto max-xxs:w-screen">
             {rows.map((row, col) => (
                 <div
                     key={col}
