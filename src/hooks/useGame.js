@@ -48,6 +48,7 @@ const initGame = (wordLength = 5) => {
 export const useGame = () => {
     const [wordLength, setWordLength] = useState(5);
     const [initial] = useState(() => initGame(wordLength));
+    const [isShaking, setIsShaking] = useState(false);
 
     const [gameState, setGameState] = useState(() => {
         return {
@@ -70,18 +71,18 @@ export const useGame = () => {
 
     const changeWordLength = (newLength) => {
         if (newLength === wordLength) return;
-        
+
         setWordLength(newLength);
         const newInitial = initGame(newLength);
-        
+
         setWordProgress({
             list: newInitial.shuffled,
             index: newInitial.index,
             length: newLength,
         });
-        
+
         setKeyStatus({});
-        
+
         setGameState({
             solution: newInitial.solution,
             board: createEmptyBoard(newLength),
@@ -153,6 +154,11 @@ export const useGame = () => {
                 const validWords = getValidWordsByLength(wordLength);
 
                 if (!validWords.includes(guess)) {
+                    setIsShaking(true);
+                    setTimeout(() => setIsShaking(false), 300);
+                    if (window.navigator?.vibrate) {
+                        window.navigator.vibrate(200);
+                    };
                     return prev;
                 }
 
@@ -212,5 +218,6 @@ export const useGame = () => {
         restartGame,
         changeWordLength,
         wordLength,
+        isShaking
     };
 };

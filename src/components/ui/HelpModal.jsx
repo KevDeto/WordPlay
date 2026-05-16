@@ -41,21 +41,21 @@ const HelpModal = ({ open, onClose }) => {
                                 <div className='w-[50px] h-[50px] xxs:h-[60px] xxs:w-[60px] xs:h-[70px] xs:w-[70px] rounded-[8px] flex justify-center items-center bg-[#79B851]'>o</div>
                             </div>
                             <div className='flex justify-center items-center mb-3'>
-                                <div className='text-white bg-[#313448]/30 min-w-[70%] flex flex-col gap-3 items-center p-6 m-auto rounded-[8px]'>
+                                <div className='text-white bg-[#313448]/30 min-w-[70%] flex flex-col gap-3 items-start p-6 m-auto rounded-[8px]'>
                                     <p className='text-center flex text-[12px] xs:text-[15px]'>
-                                        <span className='rounded-[2px] font-bold uppercase w-[30px] h-[20px] xxs:w-[30px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#3D4054] flex justify-center items-center'>e</span>
+                                        <span className='rounded-[2px] font-bold uppercase w-[20px] h-[20px] xxs:w-[25px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#3D4054] flex justify-center items-center'>e</span>
                                         &nbsp;,&nbsp;
-                                        <span className='rounded-[2px] font-bold uppercase w-[30px] h-[20px] xxs:w-[30px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#3D4054] flex justify-center items-center'>i</span>
+                                        <span className='rounded-[2px] font-bold uppercase w-[20px] h-[20px] xxs:w-[25px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#3D4054] flex justify-center items-center'>i</span>
                                         &nbsp;no está en la palabra objetivo en absoluto.
                                     </p>
                                     <p className='text-center flex text-[12px] xs:text-[15px]'>
-                                        <span className='rounded-[2px] font-bold uppercase w-[30px] h-[20px] xxs:w-[30px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#F3C237] flex justify-center items-center'>d</span>
+                                        <span className='rounded-[2px] font-bold uppercase w-[20px] h-[20px] xxs:w-[25px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#F3C237] flex justify-center items-center'>d</span>
                                         &nbsp; está en la palabra pero en el lugar equivocado.
                                     </p>
                                     <p className='text-center flex text-[12px] xs:text-[15px]'>
-                                        <span className='rounded-[2px] font-bold uppercase w-[30px] h-[20px] xxs:w-[30px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#79B851] flex justify-center items-center'>m</span>
+                                        <span className='rounded-[2px] font-bold uppercase w-[20px] h-[20px] xxs:w-[25px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#79B851] flex justify-center items-center'>m</span>
                                         &nbsp;,&nbsp;
-                                        <span className='rounded-[2px] font-bold uppercase w-[30px] h-[20px] xxs:w-[30px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#79B851] flex justify-center items-center'>o</span>
+                                        <span className='rounded-[2px] font-bold uppercase w-[20px] h-[20px] xxs:w-[25px] xxs:h-[25px] xs:w-[30px] xs:h-[30px] bg-[#79B851] flex justify-center items-center'>o</span>
                                         &nbsp; está en la palabra y en el lugar correcto.
                                     </p>
                                 </div>
@@ -77,7 +77,7 @@ const HelpModal = ({ open, onClose }) => {
                                         <div className='w-[50px] h-[50px] xxs:h-[60px] xxs:w-[60px] xs:h-[70px] xs:w-[70px] rounded-[8px] flex justify-center items-center bg-[#79B851]'>u</div>
                                         <div className='w-[50px] h-[50px] xxs:h-[60px] xxs:w-[60px] xs:h-[70px] xs:w-[70px] rounded-[8px] flex justify-center items-center bg-[#79B851]'>n</div>
                                         <div className='w-[50px] h-[50px] xxs:h-[60px] xxs:w-[60px] xs:h-[70px] xs:w-[70px] rounded-[8px] flex justify-center items-center bg-[#79B851]'>d</div>
-                                        <div className='w-[50px] h-[50px] xxs:h-[60px] xxs:w-[60px] xs:h-[70px] xs:w-[70px] rounded-[8px] flex justify-center items-center bg-[#3D4054]'>o</div>
+                                        <div className='w-[50px] h-[50px] xxs:h-[60px] xxs:w-[60px] xs:h-[70px] xs:w-[70px] rounded-[8px] flex justify-center items-center bg-[#79B851]'>o</div>
                                     </div>
                                     <span className='text-[12px] xs:text-[15px] font-semibold capitalize text-center'>¡Palabra adivinada! 🏆</span>
 

@@ -2,25 +2,16 @@ import { useState } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
-const Modal = ({ game, onReset, word }) => {
-    const [open, setOpen] = useState(true)
-
+const Modal = ({ isOpen, onClose, onReset, word, game }) => {
     if (game.gameState.win === null || game.gameState.win === undefined) return null;
 
     const handleReset = () => {
-        setOpen(false);
-        if (onReset) {
-            onReset();
-        }
-    }
-
-    const handleClose = () => {
-        setOpen(false);
+        onReset();
     }
 
     return (
         <div>
-            <Dialog open={open} onClose={handleClose} className="relative z-4">
+            <Dialog open={isOpen} onClose={onClose} className="relative z-4">
                 <DialogBackdrop
                     transition
                     className="fixed inset-0 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in dark:bg-gray-900/50"
@@ -67,7 +58,7 @@ const Modal = ({ game, onReset, word }) => {
                                 </button>
                                 <button
                                     type="button"
-                                    onClick={handleClose}
+                                    onClick={onClose}
                                     className="mt-3 inline-flex w-full justify-center rounded-md cursor-pointer px-3 py-2 text-sm font-semibold  shadow-xs  sm:mt-0 sm:w-auto bg-white/10 text-white dark:shadow-none hover:bg-white/20"
                                 >
                                     CERRAR
