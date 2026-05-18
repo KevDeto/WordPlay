@@ -44,7 +44,7 @@ const SettingsModal = ({ open, onClose, onWordLengthChange, currentLength }) => 
                                                 <button
                                                     key={length}
                                                     onClick={() => handleSave(length)}
-                                                    className={`flex px-3 py-1 xxs:px-4 xxs:py-2 rounded-lg font-semibold transition-all cursor-pointer
+                                                    className={`flex px-3 py-1 xxs:px-4 xxs:py-2 rounded-lg font-bold transition-all cursor-pointer
                                                         text-[12px] xxs:text-[15px] sm:text-lg
                                                         ${selectedLength === length
                                                             ? 'bg-[#79B851] text-white'
@@ -57,7 +57,7 @@ const SettingsModal = ({ open, onClose, onWordLengthChange, currentLength }) => 
                                         </div>
                                     </div>
 
-                                    <p className="mt-3 mb-3 text-[8px] sm:text-xs text-gray-400">
+                                    <p className="mt-3 mb-3 text-xs text-gray-400">
                                         Cambiar la longitud reiniciará la partida actual
                                     </p>
                                 </div>

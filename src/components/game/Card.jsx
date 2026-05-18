@@ -32,7 +32,7 @@ export const Card = ({ cell, index }) => {
                 justify-center items-center
                 w-[50px] h-[50px] xs:w-[64px] xs:h-[64px] md:w-[72px] md:h-[72px]
                 m-[3.4px]
-                font-bold text-2xl xxs:text-3xl xs:text-4xl md:text-5xl
+                font-bold text-3xl xs:text-4xl md:text-5xl
                 rounded-[8px] text-white 
                 transition-all duration-350 
                 transform-3d backface-hidden
