@@ -1,16 +1,31 @@
-# React + Vite
+# 🟩 Wordle en Español
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un clon simple del juego Wordle desarrollado con React JS y Tailwind css. Adivina la palabra secreta en 6 intentos. Inspirado en el clásico Wordle, pero enfocado en palabras del idioma español.
 
-Currently, two official plugins are available:
+---
+<!--
+## 📷 Vista previa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Vista previa del juego](ruta-de-tu-imagen.png)
 
-## React Compiler
+---
+-->
+## 🚀 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Palabras de 4, 5 y 6 letras en español.
+- Interfaz tipo teclado.
+- Colores:
+  - 🟩 Verde: letra correcta y en posición correcta.
+  - 🟨 Amarillo: letra presente en otra posición.
+  - ⬜ Gris: letra no está en la palabra.
+- Generación aleatoria de palabras.
+- Validación de palabras contra un diccionario local.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tecnologías
+
+✅ React JS  
+✅ Tailwind CSS  
+✅ Git  
+✅ Vercel (para despliegue)
