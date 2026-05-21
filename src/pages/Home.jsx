@@ -4,6 +4,7 @@ import { GameBoard } from "../components/game/GameBoard";
 import { Keyboard } from "../components/game/Keyboard";
 import { Header } from "../components/layout/Header";
 import { Container } from "../components/layout/Container";
+import { Footer } from "../components/layout/Footer"
 import Modal from "../components/ui/Modal";
 import { useEffect, useState } from "react";
 
@@ -70,6 +71,7 @@ export const Home = () => {
                     game={game}
                 />
             )}
+            <Footer />
         </Container>
     );
 };

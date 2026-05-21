@@ -4,10 +4,10 @@ import { CircleQuestionMark, X } from 'lucide-react'
 const HelpModal = ({ open, onClose }) => {
     return (
         <Dialog open={open} onClose={onClose} className="relative z-10 " __demoMode>
-            <div className=" max-w-[780px] m-auto absolute top-[77px] fixed inset-0 z-20 ">
+            <div className=" max-w-[780px] m-auto mt-[77px] mb-[22px] fixed inset-0 z-20 ">
                 <DialogPanel
                     transition
-                    className="relative transform h-full overflow-hidden bg-[#13141C]"
+                    className="transform h-full overflow-hidden bg-[#13141C]"
                 >
                     <div>
                         <div className='w-full p-2 font-semibold text-2xl

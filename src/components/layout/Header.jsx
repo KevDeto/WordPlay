@@ -40,10 +40,10 @@ export const Header = ({ onWordLengthChange, currentWordLength }) => {
                         className="block xxs:hidden h-[36px] w-[36px]"
                     />
                     <div
-                        className="hidden xxs:block text-center text-white font-bold text-2xl"
+                        className="hidden xxs:block text-center text-white font-bold text-3xl"
                         style={{ fontWeight: "bold" }}
                     >
-                        WORDPLAY
+                        <span className="text-green-600">W</span>ordplay
                     </div>
                 </div>
                 <div className="flex gap-2">

@@ -13,7 +13,7 @@ const SettingsModal = ({ open, onClose, onWordLengthChange, currentLength }) => 
 
     return (
         <Dialog open={open} onClose={onClose} className="relative z-10" __demoMode>
-            <div className="max-w-[780px] m-auto mt-[77px] fixed inset-0 z-30 ">
+            <div className="max-w-[780px] m-auto mt-[77px] mb-[22px] fixed inset-0 z-30 ">
                 <DialogPanel
                     transition
                     className="relative transform h-full overflow-hidden bg-[#13141C]"
