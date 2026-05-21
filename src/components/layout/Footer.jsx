@@ -6,7 +6,7 @@ export const Footer = () => {
                 <p>Wordplay</p>
             </div>
             <div className="px-4">
-                <p>Creado por <span  className="text-green-600">Kevin Huayta</span></p>
+                <p>Creado por <span  className="text-green-600 decoration-0"><a href="https://github.com/KevDeto" target="_blank">Kevin Huayta</a></span></p>
             </div>
         </div>
     );
